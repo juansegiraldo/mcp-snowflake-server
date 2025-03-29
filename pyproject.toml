@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp_snowflake_server"
+version = "0.1.0"
+authors = [
+    { name = "Juan Giraldo", email = "juan.giraldo@example.com" },
+]
+description = "Un servidor MCP para interactuar con Snowflake"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "snowflake-connector-python>=3.0.0",
+    "mcp-core>=0.1.0",
+    "click>=8.0.0",
+    "python-dotenv>=0.19.0",
+]
+
+[project.scripts]
+mcp_snowflake_server = "mcp_snowflake_server.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_snowflake_server"]
